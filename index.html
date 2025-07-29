@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>REGISTRO MIEMBROS DEL CONSEJO NACIONAL</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #ffecd2, #fcb69f);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo-container img {
+      max-width: 150px;
+      height: auto;
+      border-radius: 50%; /* Elimina esto si no quieres que el logo sea circular */
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 10px;
+      font-size: 28px;
+      color: #333;
+      font-weight: 700;
+    }
+
+    form label {
+      display: block;
+      margin-top: 18px;
+      font-weight: 600;
+      color: #222;
+      font-size: 15px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      background-color: #fafafa;
+      transition: all 0.3s;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #ff7e5f;
+      background-color: #fff;
+      outline: none;
+      box-shadow: 0 0 5px rgba(255, 126, 95, 0.5);
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 30px;
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #feb47b, #ff7e5f);
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<script>
+  async function enviarFormulario(event) {
+    event.preventDefault();
+
+    const data = {
+      nombre: document.getElementById('nombre').value,
+      cedula: document.getElementById('cedula').value,
+      edad: document.getElementById('edad').value,
+      provincia: document.getElementById('provincia').value,
+      iglesia: document.getElementById('iglesia').value,
+      pastor: document.getElementById('pastor').value,
+      telPastor: document.getElementById('telPastor').value,
+      destacamento: document.getElementById('destacamento').value,
+      activo: document.getElementById('activo').value,
+      cargoLocal: document.getElementById('cargoLocal').value,
+      seccion: document.getElementById('seccion').value,
+      cargoSeccional: document.getElementById('cargoSeccional').value,
+    };
+
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzlseZzb0WhdFguok3I4PKjb-zCYDU5jBSvzq6AGMDc6Ofxrli0V5-xBBP2mEJtjHNoAw/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      alert("Formulario enviado exitosamente.");
+      event.target.reset();
+    } catch (error) {
+      alert("Error al enviar: " + error.message);
+    }
+  }
+</script>
+
+<body>
+
+  <div class="container">
+    <div class="logo-container">
+      <!-- Cambia la URL aquí -->
+      <img src="https://images.seeklogo.com/logo-png/22/1/exploradores-del-rey-logo-png_seeklogo-224247.png" alt="Logotipo">
+      <h2>FORMULARIO DE REGISTRO DE MIEMBROS DEL CONSEJO NACIONAL</h2>
+    </div>
+
+    <form onsubmit="enviarFormulario(event)">
+        <label for="nombre">Nombre Completo</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="cedula">No. Cédula</label>
+        <input type="number" id="cedula" name="cedula" required>
+
+        <label for="edad">Edad</label>
+        <input type="number" id="edad" name="edad" required>
+
+        <label for="provincia">Provincia</label>
+        <input type="text" id="provincia" name="provincia" required>
+
+        <label for="iglesia">Nombre de la Iglesia</label>
+        <input type="text" id="iglesia" name="iglesia" required>
+
+        <label for="pastor">Nombre del Pastor</label>
+        <input type="text" id="pastor" name="pastor" required>
+
+        <label for="telPastor">Teléfono del Pastor</label>
+        <input type="text" id="telPastor" name="telPastor" required>
+
+        <label for="destacamento">Nombre del Destacamento</label>
+        <input type="text" id="destacamento" name="destacamento" required>
+
+        <label for="activo">¿Está activo el Destacamento?</label>
+        <select id="activo" name="activo" required>
+            <option value="">Seleccione una opción</option>
+            <option value="Si">Sí</option>
+            <option value="No">No</option>
+        </select>
+
+        <label for="cargoLocal">Cargo Local</label>
+        <input type="text" id="cargoLocal" name="cargoLocal" required>
+
+        <label for="seccion">Nombre de la Sección</label>
+        <input type="text" id="seccion" name="seccion" required>
+
+        <label for="cargoSeccional">Cargo Seccional</label>
+        <input type="text" id="cargoSeccional" name="cargoSeccional" required>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+  </div>
+
+</body>
+</html>
+
+
+
