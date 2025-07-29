@@ -139,6 +139,9 @@
         <label for="edad">Edad</label>
         <input type="number" id="edad" name="edad" required>
 
+        <label for="numeroContacto">Número de Contacto</label>
+        <input type="text" id="numeroContacto" name="numeroContacto" required>
+
         <label for="provincia">Provincia</label>
         <input type="text" id="provincia" name="provincia" required>
 
@@ -188,6 +191,7 @@
         nombre: document.getElementById('nombre').value,
         cedula: document.getElementById('cedula').value,
         edad: document.getElementById('edad').value,
+        numeroContacto: document.getElementById('numeroContacto').value,
         provincia: document.getElementById('provincia').value,
         iglesia: document.getElementById('iglesia').value,
         pastor: document.getElementById('pastor').value,
@@ -203,7 +207,7 @@
       };
 
       try {
-        await fetch("https://script.google.com/macros/s/AKfycbwqS1hc2AT4ty1eRJYP9xgIqxR4NtCHk9toKlw2Sw-4KdNurAd4kUyjm_3LGeCo8KmEBg/exec", {
+        await fetch("https://script.google.com/macros/s/AKfycbzcXpXyMd8V9NQQWphe-TemtTM15UdVPnbo398CsGEvOjFct_WdH0OCgMYEXaLuUaXYkw/exec", {
           method: "POST",
           mode: "no-cors",
           headers: {
