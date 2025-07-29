@@ -130,49 +130,55 @@
     </div>
 
     <form onsubmit="enviarFormulario(event)">
-      <label for="nombre">Nombre Completo</label>
-      <input type="text" id="nombre" name="nombre" required>
+        <label for="nombre">Nombre Completo</label>
+        <input type="text" id="nombre" name="nombre" required>
 
-      <label for="cedula">No. Cédula</label>
-      <input type="number" id="cedula" name="cedula" required>
+        <label for="cedula">No. Cédula</label>
+        <input type="number" id="cedula" name="cedula" required>
 
-      <label for="edad">Edad</label>
-      <input type="number" id="edad" name="edad" required>
+        <label for="edad">Edad</label>
+        <input type="number" id="edad" name="edad" required>
 
-      <label for="provincia">Provincia</label>
-      <input type="text" id="provincia" name="provincia" required>
+        <label for="provincia">Provincia</label>
+        <input type="text" id="provincia" name="provincia" required>
 
-      <label for="iglesia">Nombre de la Iglesia</label>
-      <input type="text" id="iglesia" name="iglesia" required>
+        <label for="iglesia">Nombre de la Iglesia</label>
+        <input type="text" id="iglesia" name="iglesia" required>
 
-      <label for="pastor">Nombre del Pastor</label>
-      <input type="text" id="pastor" name="pastor" required>
+        <label for="pastor">Nombre del Pastor</label>
+        <input type="text" id="pastor" name="pastor" required>
 
-      <label for="telPastor">Teléfono del Pastor</label>
-      <input type="text" id="telPastor" name="telPastor" required>
+        <label for="telPastor">Teléfono del Pastor</label>
+        <input type="text" id="telPastor" name="telPastor" required>
 
-      <label for="destacamento">Nombre del Destacamento</label>
-      <input type="text" id="destacamento" name="destacamento" required>
+        <label for="destacamento">Nombre del Destacamento</label>
+        <input type="text" id="destacamento" name="destacamento" required>
 
-      <label for="activo">¿Está activo el Destacamento?</label>
-      <select id="activo" name="activo" required>
-        <option value="">Seleccione una opción</option>
-        <option value="Si">Sí</option>
-        <option value="No">No</option>
-      </select>
+        <label for="activo">¿Está activo el Destacamento?</label>
+        <select id="activo" name="activo" required>
+            <option value="">Seleccione una opción</option>
+            <option value="Si">Sí</option>
+            <option value="No">No</option>
+        </select>
 
-      <label for="cargoLocal">Cargo Local</label>
-      <input type="text" id="cargoLocal" name="cargoLocal" required>
+        <label for="cargoLocal">Cargo Local</label>
+        <input type="text" id="cargoLocal" name="cargoLocal" required>
 
-      <label for="seccion">Nombre de la Sección</label>
-      <input type="text" id="seccion" name="seccion" required>
+        <label for="seccion">Nombre de la Sección</label>
+        <input type="text" id="seccion" name="seccion" required>
 
-      <label for="cargoSeccional">Cargo Seccional</label>
-      <input type="text" id="cargoSeccional" name="cargoSeccional" required>
+        <label for="cargoSeccional">Cargo Seccional</label>
+        <input type="text" id="cargoSeccional" name="cargoSeccional" required>
 
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
+        <!-- NUEVOS CAMPOS -->
+        <label for="cargoRegional">Cargo Regional</label>
+        <input type="text" id="cargoRegional" name="cargoRegional" required>
+
+        <label for="cargoNacional">Cargo Nacional</label>
+        <input type="text" id="cargoNacional" name="cargoNacional" required>
+
+        <button type="submit">Enviar</button>
+        </form>
 
   <script>
     async function enviarFormulario(event) {
@@ -191,10 +197,13 @@
         cargoLocal: document.getElementById('cargoLocal').value,
         seccion: document.getElementById('seccion').value,
         cargoSeccional: document.getElementById('cargoSeccional').value,
+        cargoRegional: document.getElementById('cargoRegional').value,
+        cargoNacional: document.getElementById('cargoNacional').value,
+
       };
 
       try {
-        await fetch("https://script.google.com/macros/s/AKfycbzlseZzb0WhdFguok3I4PKjb-zCYDU5jBSvzq6AGMDc6Ofxrli0V5-xBBP2mEJtjHNoAw/exec", {
+        await fetch("https://script.google.com/macros/s/AKfycbwqS1hc2AT4ty1eRJYP9xgIqxR4NtCHk9toKlw2Sw-4KdNurAd4kUyjm_3LGeCo8KmEBg/exec", {
           method: "POST",
           mode: "no-cors",
           headers: {
